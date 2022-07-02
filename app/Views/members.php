@@ -54,7 +54,7 @@
         </div>
 
 <script>
-    // this is not normal aJAX.. you need to refersh page for update data in browser...
+    // this is  normal aJAX.. you need to refersh page for update data in browser...
     $(document).ready(function(){
         $("#deleteBtn").click(function(){
             $.ajax({
@@ -63,6 +63,7 @@
                 cache:false,
                 success: function(response){
                         alert(response.status);
+                        location.reload();
                 },
                 error: function(err){
                     console.warn('errro '+err);
