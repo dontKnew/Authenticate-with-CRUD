@@ -1,0 +1,1 @@
+<a href="<?= base_url('delete-member/'.$value['id'])?>" class="btn btn-danger my-1">Delete</a>

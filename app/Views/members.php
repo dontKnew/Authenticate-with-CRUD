@@ -30,7 +30,10 @@
             <td><?php echo $value['mobile'] ?></td>
             <td>
                 <a href="<?= base_url('edit-member/'.$value['id'])?>" class="btn btn-primary">Edit</a>
-                <a href="<?= base_url('delete-member/'.$value['id'])?>" class="btn btn-danger my-1">Delete</a>
+            <form>
+                <input type="hidden" value="<?php echo $value['id'] ?>" class="id">
+                <input type="button" class="btn btn-danger my-1" id="deleteBtn" value="Delete"/>
+            </form>
             </td>
             </tr>
             <?php } ?>
@@ -49,4 +52,23 @@
         </div>
 
         </div>
+
+<script>
+    // this is not normal aJAX.. you need to refersh page for update data in browser...
+    $(document).ready(function(){
+        $("#deleteBtn").click(function(){
+            $.ajax({
+                method:'GET',
+                url:'/delete-member/'+ $(".id").val(),
+                cache:false,
+                success: function(response){
+                        alert(response.status);
+                },
+                error: function(err){
+                    console.warn('errro '+err);
+                }
+            });
+        })
+    })
+</script>
 <?= $this->endSection() ?>

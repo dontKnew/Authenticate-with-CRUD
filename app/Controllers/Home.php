@@ -104,10 +104,11 @@ class Home extends BaseController
         $memberModel = new MemberModel();
         $member = $memberModel->delete($id);
 
-        $session = session();
-        $session->setFlashdata("success", "Member deleted successfully");
+        // $session = session();
+        // $session->setFlashdata("success", "Member deleted successfully");
+        return $this->response->setJSON(['status'=>'Member deleted successfully']);
 
-        return redirect()->to(base_url('/'));
+        // return redirect()->to(base_url('/'));
     }
 
     public function clearMembers()

@@ -44,7 +44,7 @@ $routes->get("members", "Home::index", ['filter'=>'auth']);
 $routes->match(["get", "post"], "add-member", "Home::addMember", ['filter'=>'auth']);
 $routes->match(["get", "post"], "edit-member/(:num)", "Home::editMember/$1", ['filter'=>'auth']);
 $routes->get("delete-member/(:num)", "Home::deleteMember/$1", ['filter'=>'auth']);
-$routes->get("clear-members/", "Home::clearMembers",['filter'=>'auth']);
+$routes->get("clear-members", "Home::clearMembers",['filter'=>'auth']);
 
 //Normal Page
 $routes->get('login', 'LoginController::index');
