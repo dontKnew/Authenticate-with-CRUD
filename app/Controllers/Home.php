@@ -114,25 +114,17 @@ class Home extends BaseController
     public function clearMembers()
     {
         $memberModel = new MemberModel();
-        $member = $memberModel->delete();
-
         $session = session();
-        $session->setFlashdata("success", "All Members Data has been Clear");
-        return redirect()->to(base_url('/'));
+        try {
+            $member = $memberModel->delete();
+            $session->setFlashdata("success", "All Members Data has been Clear");
+            return redirect()->to(base_url('/'));
+        } catch (\Exception $e){
+            $session->setFlashdata("success", $e);
+        }
     }
 
-    public function example($id=null) {
-            $pager = \Config\Services::pager();
-            $model = new MemberModel(); 
-            $data = [
-                'users' => $model->paginate(2),
-                'pager' => $model->pager,
-            ];
-
-            $request = service('request');
-            // the URI being requested (i.e., /about)
-            return $_GET['page'];
-
-            
+    public function example() {
+        return view('comments');
     }
 }
