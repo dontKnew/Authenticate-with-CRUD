@@ -5,7 +5,7 @@
 <div class="container" style="margin-top:20px;">
 <h1 class="text-light text-center mt-3 p-2"> <u> Add New Member :) </u> </h1>
 <hr>
-    <form action="<?= base_url('add-member')?>" method="post">
+    <form action="<?= base_url('/add-member')?>" method="post">
     <div class="mb-3">
         <label for="exampleInputName1" class="form-label">Full name</label>
         <input type="text" class="form-control" name='name'>

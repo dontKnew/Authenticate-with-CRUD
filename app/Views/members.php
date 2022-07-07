@@ -5,7 +5,7 @@
     <h1 class="text-warning text-center mt-3"> <u> CRUD Operation with Codeigniter 4 </u> </h1>
         <div class="my-4 d-flex justify-content-between">
             <a class="btn btn-outline-primary" href="<?= base_url("add-member")?>">Add Member </a>
-            <a class="btn btn-outline-danger" href="<?= base_url("clear-members")?>">Clear Data </a>
+            <a class="btn btn-outline-danger" href="#notworking">Clear Data </a>
         </div>
         <hr class="text-light">
         <?php  if(session()->has("success", "newMember")){ ?> 
@@ -44,7 +44,7 @@
         <div> Showing <?= $currentPage ?> out of <?= $pager->getPageCount()?> </div>
         <div class="d-flex">
         <?php if ($pager) :?>
-                <?php $pagi_path='index.php/members'; ?>
+                <?php $pagi_path='auth/members'; ?>
                 <?php $pager->setPath($pagi_path); ?>
                 <?= $pager->simpleLinks() ?>
 	        <?php endif ?>
@@ -59,7 +59,7 @@
         $("#deleteBtn").click(function(){
             $.ajax({
                 method:'GET',
-                url:'/delete-member/'+ $(".id").val(),
+                url:'auth/delete-member/'+ $(".id").val(),
                 cache:false,
                 success: function(response){
                         alert(response.status);

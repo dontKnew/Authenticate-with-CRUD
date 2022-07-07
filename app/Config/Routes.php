@@ -39,24 +39,24 @@ $routes->setAutoRoute(false);
 // route since we don't have to scan directories.
 
 // Authentication Pages
-$routes->get('/', 'Home::index', ['filter'=>'auth']);
-$routes->get("members", "Home::index", ['filter'=>'auth']);
-$routes->match(["get", "post"], "add-member", "Home::addMember", ['filter'=>'auth']);
-$routes->match(["get", "post"], "edit-member/(:num)", "Home::editMember/$1", ['filter'=>'auth']);
-$routes->get("delete-member/(:num)", "Home::deleteMember/$1", ['filter'=>'auth']);
-$routes->delete("clear-members", "Home::clearMembers",['filter'=>'auth']);
+$routes->get('auth/', 'Home::index', ['filter'=>'auth']);
+$routes->get("auth/members", "Home::index", ['filter'=>'auth']);
+$routes->match(["get", "post"], "auth/add-member", "Home::addMember", ['filter'=>'auth']);
+$routes->match(["get", "post"], "auth/edit-member/(:num)", "Home::editMember/$1", ['filter'=>'auth']);
+$routes->get("auth/delete-member/(:num)", "Home::deleteMember/$1", ['filter'=>'auth']);
+$routes->delete("auth/clear-members", "Home::clearMembers",['filter'=>'auth']);
 
 //Normal Page
-$routes->get('login', 'LoginController::index');
-$routes->post('login', 'LoginController::login');
-$routes->get('logout', 'LoginController::logout');
-$routes->get('register', 'RegisterController::index');
-$routes->post('register', 'RegisterController::register');
+$routes->get('auth/login', 'LoginController::index');
+$routes->post('auth/login', 'LoginController::login');
+$routes->get('auth/logout', 'LoginController::logout');
+$routes->get('auth/register', 'RegisterController::index');
+$routes->post('auth/register', 'RegisterController::register');
 
 
 
 //practice page 
-$routes->get('practice', 'Home::example');
+$routes->get('auth/practice', 'Home::example');
 
 
 /*

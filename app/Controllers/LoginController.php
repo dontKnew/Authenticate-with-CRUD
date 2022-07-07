@@ -34,11 +34,11 @@ class LoginController extends BaseController
                 return redirect()->to('/');
             }else{
                 $session->setFlashdata('msg', 'Please enter the correct Password');
-                return redirect()->to('/login');
+                return redirect()->to('login');
             }
         }else{
             $session->setFlashdata('msg', 'This Email is not registered us');
-            return redirect()->to('/login');
+            return redirect()->to('login');
         }
     }
   

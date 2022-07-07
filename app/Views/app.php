@@ -16,7 +16,7 @@
   <div class="navbar-brand mb-0 h1">Dashboard</div>
   <div class="d-flex">
     <?php if(session('logged_in')) : ?>
-        <a href="logout" class="btn btn-dark"> Logout <span class="text-danger"> |</span> <?= session('user_name') ?> </span> </a> 
+        <a href="<?= base_url('/logout')?>" class="btn btn-dark"> Logout <span class="text-danger"> |</span> <?= session('user_name') ?> </span> </a> 
     <?php endif ?>
     <?php if(!session('logged_in')) : ?>
         <a href="login" class="btn btn-dark"> Login :) </a> 
